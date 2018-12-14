@@ -5,13 +5,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class ControllerB {
 
     @ResponseBody
-    @RequestMapping(value = "/b", method = RequestMethod.GET)
-    public String b() {
-        return "b";
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public Object index() {
+        Map<String, Object> data = new HashMap<>();
+        data.put("code", 200);
+        data.put("data", "service-b");
+        return data;
     }
 
 }
